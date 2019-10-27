@@ -61,32 +61,49 @@
                         <div class="wrapper">
                             <div id="chart">
                                 <script>
-                                    function getData() {
+                                    const test = [0,6,10,20,10,6,3, // 7 time -> PR Wave
+                                                  2,-30,1,2,50,90,50,-40,2,3, // 10 time -> QRS Wave
+                                                  2,15,30,20,10,1, // 6 time -> ST Wave
+                                                  2,0]; // 2 time -> T Wave
+                                    //  40 milisec / datatime 
+                                    //  1 graph = 1000 milisec
+                                    
+                                    function getData(num) {
                                         // return num;
-                                        return Math.random(); 
+                                        // num = 0.5;
+                                        num = num /10;
+                                        return num; 
                                     } 
                                     Plotly.plot('chart',[{
-                                        y:[getData()],
+                                        y:[getData(test)],
                                         type:'line'
                                     }]);
                                     
                                     var cnt = 0;
-
+                                    var count = 0;
                                     setInterval(function(){
+                                        
                                         // Plotly.extendTraces('chart', {y: [getData()]}, [0, 1], 10)
-                                        Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
+                                        console.log("test[count] : ",test[count]);
+                                        // Plotly.extendTraces('chart',{ y:[[getData(test[count])]]}, [0]);
+                                        Plotly.extendTraces('chart',{ y:[[getData(test[count])]]}, [0]);
                                         cnt = cnt + 1;
-                                        if(cnt > 250) {
+                                        if(cnt > 100) {
                                             Plotly.relayout('chart',{
                                                 xaxis: {
-                                                    range: [cnt-250,cnt]
+                                                    range: [cnt-100,cnt]
                                                 },
                                                 yaxis: {
-                                                    range: [-1,1]
+                                                    range: [-10,10]
                                                 }
                                             });
                                         }
+                                        count ++;
+                                        if (count >= 25){
+                                            count =0;
+                                        }
                                     },40);
+
                                 </script>
                             </div>
                         </div>
