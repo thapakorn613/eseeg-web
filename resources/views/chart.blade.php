@@ -61,6 +61,7 @@
                         <div class="navbar">
                             <span>Real-Time Chart with Plotly.js</span>
                         </div>
+                        <script src="https://d3js.org/d3-time.v1.min.js"></script>
                         <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
                         <div id="graphDiv"></div>
                     </div>
