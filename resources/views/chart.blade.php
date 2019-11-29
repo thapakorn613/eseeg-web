@@ -61,10 +61,52 @@
                         <div class="navbar">
                             <span>Real-Time Chart with Plotly.js</span>
                         </div>
-                        <script src="https://d3js.org/d3-time.v1.min.js"></script>
                         <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
                         <div id="graphDiv"></div>
                     </div>
+                    <div id="graphDiv3"></div>
+                    <script>
+                        var textECG = {
+                            y: [
+                                3.794, 3.775, 3.908, 3.922, 3.755, 3.699, 3.742, 3.641, 3.673, 3.621,
+                                3.578, 3.673, 3.637, 3.699, 3.761, 3.758, 3.690, 3.807, 3.755, 3.641,
+                                3.719, 3.618, 3.490, 4.624, 3.912, 3.748, 3.611, 3.670, 3.667, 3.673,
+                                3.680, 3.670, 3.680, 3.784, 3.853, 3.944, 3.892, 3.755, 3.748, 3.670,
+                                3.693, 3.686, 3.627, 3.667, 3.641, 3.611, 3.657, 3.709, 3.712, 3.748,
+                            ],
+                            type: "scatter"
+                        }
+
+                        var textECG2 = {
+                            y: [
+                                3.794, 3.575, 3.908, 3.922, 3.755, 3.699, 3.742, 3.641, 3.673, 3.621,
+                                3.578, 3.673, 3.637, 3.699, 3.761, 3.758, 3.690, 3.807, 3.755, 3.641,
+                                3.719, 3.818, 3.590, 4.624, 3.912, 3.748, 3.611, 3.670, 3.667, 3.673,
+                                3.680, 3.970, 3.580, 3.784, 3.853, 3.944, 3.892, 3.755, 3.748, 3.670,
+                                3.693, 3.086, 3.527, 3.667, 3.641, 3.611, 3.657, 3.709, 3.712, 3.748,
+                            ],
+                            type: "scatter"
+                        }
+                        var data = [textECG];
+
+                        var layout = {
+                            title: "Electrocardiography",
+                            autosize: false,
+                            width: 1000,
+                            height: 500,
+                            margin: {
+                                l: 50,
+                                r: 50,
+                                b: 30,
+                                t: 30,
+                                pad: 4
+                            },
+                            paper_bgcolor: '#FFFFCC',
+                            plot_bgcolor: '#FFFFFF'
+                        };
+
+                        Plotly.newPlot(graphDiv3, data, layout);
+                    </script>
                 </div>
             </div>
         </div>
@@ -176,4 +218,4 @@
             timeStamp = formatTime(new Date);
         }
     }, 20);
-</script>
+</script></html>
