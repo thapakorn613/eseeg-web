@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/x-icon" href="images/EseeG-shortCut.png" />
-        <title>EseeG - List Node</title>
-        
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css" >
 
-        <!-- Styles -->
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/EseeG-shortCut.png" />
+    <title>EseeG - List Node</title>
 
-            .topnav {
-                overflow: hidden;
-                background-color: #333;
-            }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css">
 
-            .topnav a {
+    <!-- Styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
             float: left;
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
-            }
+        }
 
-            .topnav a:hover {
+        .topnav a:hover {
             background-color: #ddd;
             color: black;
-            }
+        }
 
-            .topnav a.active {
-                background-color: #4CAF50;
-                color: white;
-            }
-        </style>
-        <div class="topnav">
-            <a class="active" href="/">ECG</a>
-            <a href="/list-node">All node</a>
-            <a href="/contact">Contact</a>
-            <a href="/about">About</a>
-        </div>
-    </head>
-    <body>
-        <!-- <script src="./../../storage/plotly.min.js"></script> -->
-        <div class="row bg-light py-3">
-            <div class="col text-center">
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <div class="topnav">
+        <a class="active" href="/">ECG</a>
+        <a href="/list-node">All node</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+    </div>
+</head>
+
+<body>
+    <!-- <script src="./../../storage/plotly.min.js"></script> -->
+    <div class="row bg-light py-3">
+        <div class="col text-center">
             All Node List
-            </div>
         </div>
-        <table class="table table-sm table-hover">
+    </div>
+    <table class="table table-sm table-hover">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Node</th>
-            <th scope="col">Affiliation</th>
-            <th scope="col">Name</th>
-            <th scope="col">ECG Chart</th>
-            <th scope="col">Detail</th>            
+                <th scope="col">#</th>
+                <th scope="col">Node</th>
+                <th scope="col">Affiliation</th>
+                <th scope="col">Name</th>
+                <th scope="col">ECG Chart</th>
+                <th scope="col">Detail</th>
             </tr>
         </thead>
         <tbody>
@@ -80,9 +82,11 @@
                     </a>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('detail') }}
-                    </button>
+                    <a href="/ecg-detail">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('detail') }}
+                        </button>
+                    </a>
                 </td>
             </tr>
             <tr>
@@ -338,6 +342,7 @@
                 </td>
             </tr>
         </tbody>
-        </table>
-    </body>
+    </table>
+</body>
+
 </html>

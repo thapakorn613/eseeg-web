@@ -14,6 +14,7 @@
 Route::get('/', function () { return view('welcome'); });
 Route::get('/ecg-chart', function () { return view('chart'); });
 Route::get('/list-node', function () { return view('menu.listNode'); });
+Route::get('/ecg-detail', function () { return view('chartLayout'); });
 Route::get('/about', function () { return view('menu.about'); });
 Route::get('/contact', function () { return view('menu.contact'); });
 

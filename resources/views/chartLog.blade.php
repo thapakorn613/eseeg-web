@@ -10,7 +10,6 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-
     <!-- Styles -->
     <style>
         body {
@@ -63,6 +62,8 @@
                         </div>
                         <script src="https://d3js.org/d3-time.v1.min.js"></script>
                         <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+                        <br>
+                        <br>
                         <div id="graphDiv"></div>
                     </div>
                 </div>
@@ -71,10 +72,8 @@
     </center>
 </body>
 
-</html>
-
 <script>
-    var formatTime = d3.timeFormat("%c");
+    var formatTime = d3.timeFormat("%X");
     var textECG = {
         y: [
             3.794, 3.775, 3.908, 3.922, 3.755, 3.699, 3.742, 3.641, 3.673, 3.621,
@@ -85,25 +84,12 @@
         ],
         type: "scatter"
     }
-    var textECG2 = {
-        y: [
-            3.794, 3.575, 3.908, 3.922, 3.755, 3.699, 3.742, 3.641, 3.673, 3.621,
-            3.578, 3.673, 3.637, 3.699, 3.761, 3.758, 3.690, 3.807, 3.755, 3.641,
-            3.719, 3.818, 3.590, 4.624, 3.912, 3.748, 3.611, 3.670, 3.667, 3.673,
-            3.680, 3.970, 3.580, 3.784, 3.853, 3.944, 3.892, 3.755, 3.748, 3.670,
-            3.693, 3.086, 3.527, 3.667, 3.641, 3.611, 3.657, 3.709, 3.712, 3.748,
-        ],
-        type: "scatter"
-    }
-
-    function getData0(num) {
-        return num;
-    }
 
     function getData(num, plus) {
         num = num + plus;
         return num;
     }
+    
     var layoutChartRealtime = {
         title: {
             text: "Electrocardiography Realtime ",
@@ -139,41 +125,29 @@
     var rangeOfTop = 1 + (numOfSet * 2);
 
     Plotly.newPlot(graphDiv, [{
-        x: formatTime(new Date),
-        y: [getData0(textECG)],
+        y: [getData(textECG, 0)],
         type: 'line'
     }], layoutChartRealtime);
 
-    Plotly.addTraces(graphDiv, [{
-        x: formatTime(new Date),
-        y: [getData0(textECG2)],
-        type: 'line'
-    }]);
-    var timeStamp = formatTime(new Date);
     setInterval(function() {
-        // console.log("test[count] : ", textECG.y[count]);
         Plotly.extendTraces(graphDiv, {
             y: [
-                [getData(textECG.y[count], 0)],
-                [getData(textECG2.y[count], 2)]
+                [getData(textECG.y[count], 0)]
             ]
-        }, [0, 1]);
+        }, [0]);
 
-        cnt = cnt + 1;
-        if (cnt > 200) {
-            Plotly.relayout(graphDiv, {
-                xaxis: {
-                    range: [cnt - 200, cnt]
-                },
-                yaxis: {
-                    range: [rangeOfButton, rangeOfTop]
-                }
-            });
-        }
+        Plotly.relayout(graphDiv, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [rangeOfButton, rangeOfTop]
+            }
+        });
+        cnt++;
         count++;
         if (count >= 50) {
             count = 0;
-            timeStamp = formatTime(new Date);
         }
     }, 20);
 </script>
