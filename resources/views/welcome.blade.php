@@ -1,80 +1,114 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/x-icon" href="images/EseeG-shortCut.png" />
-        <title>ECG Chart</title>
-        
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<html lang="en">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="images/EseeG-shortCut.png" />
 
-            .full-height {
-                height: 100vh;
-            }
+    <title>ECG PLATFORM &mdash; Colorlib Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-            .position-ref {
-                position: relative;
-            }
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+    <link rel="stylesheet" href="css/aos.css">
 
-            .title {
-                font-size: 84px;
-            }
+    <link rel="stylesheet" href="css/style.css">
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+</head>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        
-        <div class="flex-center position-ref">
-            <div class="content">
-                <a href="/list-node" class="brand">
-                    <img class="img-circle" src="images/LoGoEseeG.png" alt="service 4">
-                </a>
-            </div>
+<body >
+
+  <div class="site-wrap">
+
+  
+  
+    <div class="site-navbar py-2">
+
+      <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+          <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+          </form>
         </div>
-        <div class="form-group row mb-center">
-            
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between">
+          <a href="/home" ><img src ="images/logo.png" width="150px" hight="200px"></a>
+
+           
+          
+          
+          <div class="icons">
+            <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="positive">
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li class="active"><a style="color:white" href="index.html">Home</a></li>
+                <li><a style="color:white" href="shop.html">Services</a></li>
+                <li><a style="color:white" href="about.html">About</a></li>
+                <li><a style="color:white" href="contact.html">Contact</a></li> 
+                <li><a href="#" class="icons-btn d-inline-block js-search-open">
+                <span class="icon-search"><img src ="images/btn_search.png" width="20px" hight="20px"></span>
+                </a>
+                </li>
+                <li><a href="#" class="icons-btn d-inline-block js-search-open">
+                <span class="icon-search"><img src ="images/user.png" width="25px" hight="25px" class="icon-search"></span>
+                </a></li>
+              </ul>
+             
+            </nav>
+            </div>
+           </div>
         </div>
     </div>
-    </body>
+
+    <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
+      <div class="container">
+        <div class="row">
+            
+          <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+            <div class="site-block-cover-content text-center">
+              <h2 class="sub-title" style="color:DodgerBlue;" >Effective Medicine, New Medicine Everyday</h2>
+              <h1 style="color:DodgerBlue;">ECG WEP</h1>
+             
+            </div>            
+            </div>
+           
+        </div>
+      </div>
+    </div>
+
+        <div class="site-navbar py-2">
+        <div class="site-block-cover-content text-center">
+            <div class="content">
+            <div class="card-body">
+             
+              <a href="/home" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>       
+        </div>  
+        </div>  
+
+  
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
 </html>
