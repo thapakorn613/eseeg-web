@@ -82,22 +82,28 @@
     <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
         <center>
             @section('sidebar')
-            <a style="color:white">ArtRonin TEST</a>
+            <a style="color:white">Show chart TEST</a>
             @show
-            <div class="container">
-                @yield('content')
-            </div>
-
-            <script src="js/jquery-3.3.1.min.js"></script>
-            <script src="js/jquery-ui.js"></script>
-            <script src="js/popper.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/jquery.magnific-popup.min.js"></script>
-            <script src="js/aos.js"></script>
-            <script src="js/main.js"></script>
+            <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
+                <div class="nav nav-pills nav-justified">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="{{ action('MenuController@toHome')}}"><img src="images/icon_patient1.png" width="300px" hight="200px"></a>
+                    </div>
+                </div>
+                <div class="container">
+                    @yield('content')
+                </div>
+                <script src="js/jquery-3.3.1.min.js"></script>
+                <script src="js/jquery-ui.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/owl.carousel.min.js"></script>
+                <script src="js/jquery.magnific-popup.min.js"></script>
+                <script src="js/aos.js"></script>
+                <script src="js/main.js"></script>
 
         </center>
+    </div>
     </div>
 </body>
 
