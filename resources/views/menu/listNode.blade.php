@@ -77,12 +77,12 @@
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" ><img src ="images/logo.png" width="150px" hight="200px"></a>
+                <a href="home" ><img src ="images/logo.png" width="150px" hight="200px"></a>
                 <div class="icons">
                     <div class="main-nav d-none d-lg-block">
                     <nav class="site-navigation text-right text-md-center" role="positive">
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                        <li class="active"><a style="color:white" href="index.html">Home</a></li>
+                        <li class="active"><a style="color:white" href="home">Home</a></li>
                         <li><a style="color:white" href="shop.html">Services</a></li>
                         <li><a style="color:white" href="about.html">About</a></li>
                         <li><a style="color:white" href="contact.html">Contact</a></li> 
