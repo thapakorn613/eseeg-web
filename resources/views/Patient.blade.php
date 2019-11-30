@@ -4,7 +4,7 @@
 <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
     <div class="nav nav-pills nav-justified">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="home"><img src="images/icon_patient1.png" width="300px" hight="200px"></a>
+            <a  href="{{ action('MenuController@toHome')}}"><img src="images/icon_patient1.png" width="300px" hight="200px"></a>
         </div>
     </div>
     <div class="container">
@@ -25,8 +25,8 @@
                             <td style="color:white">{{$patients_EM[$i]->type_disease}}</td>
                             <td style="color:white">{{$patients_EM[$i]->f_name}} {{$patients_EM[$i]->f_name}}</td>
                             <td style="color:white">
-                                <a href="{{ action('DoctorController@showChart',1)}}" >
-                                    <button type="submit" class="btn btn-danger" style="color:white">
+                                <a href="{{ action('DoctorController@showChart',$patients_EM[$i]->id)}}" >
+                                    <button type="submit" class="btn btn-danger btn-sm" style="color:white">
                                         {{ __('ECG Chart') }}
                                     </button>
                                 </a>
@@ -38,7 +38,7 @@
                             <td style="color:white">{{$patients_NM[$i]->f_name}} {{$patients_NM[$i]->l_name}}</td>
                             <td style="color:white">
                                 <a href="{{ action('DoctorController@showChart_test')}}">
-                                    <button type="submit" class="btn btn-warning" style="color:white">
+                                    <button type="submit" class="btn btn-warning btn-sm" style="color:white">
                                         {{ __('ECG Chart') }}
                                     </button>
                                 </a>
@@ -50,7 +50,7 @@
                             <td style="color:white">{{$patients_NT[$i]->f_name}} {{$patients_NT[$i]->l_name}}</td>
                             <td style="color:white">
                                 <a href="#">
-                                    <button type="submit" class="btn btn-primary" style="color:white">
+                                    <button type="submit" class="btn btn-primary btn-sm" style="color:white">
                                         {{ __('ECG Chart') }}
                                     </button>
                                 </a>
