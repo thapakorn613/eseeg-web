@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<<<<<<< HEAD
-=======
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,63 +25,33 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
->>>>>>> da1893092bc2971821116b18322751fc975b2879
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="images/EseeG-shortCut.png" />
-    <title>EseeG - List Node</title>
+        <!-- Styles -->
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css">
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
 
-    <!-- Styles -->
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        .topnav a {
+            .topnav a {
             float: left;
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
-        }
+            }
 
-        .topnav a:hover {
+            .topnav a:hover {
             background-color: #ddd;
             color: black;
-        }
+            }
 
-<<<<<<< HEAD
-        .topnav a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-    <div class="topnav">
-        <a class="active" href="/">ECG</a>
-        <a href="/list-node">All node</a>
-        <a href="/contact">Contact</a>
-        <a href="/about">About</a>
-    </div>
-</head>
-
-<body>
-    <!-- <script src="./../../storage/plotly.min.js"></script> -->
-    <div class="row bg-light py-3">
-        <div class="col text-center">
-=======
             .topnav a.active {
             background-color: #4CAF50;
             color: white;
@@ -109,12 +77,12 @@
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" ><img src ="images/logo.png" width="150px" hight="200px"></a>
+                <a href="home" ><img src ="images/logo.png" width="150px" hight="200px"></a>
                 <div class="icons">
                     <div class="main-nav d-none d-lg-block">
                     <nav class="site-navigation text-right text-md-center" role="positive">
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                        <li class="active"><a style="color:white" href="index.html">Home</a></li>
+                        <li class="active"><a style="color:white" href="home">Home</a></li>
                         <li><a style="color:white" href="shop.html">Services</a></li>
                         <li><a style="color:white" href="about.html">About</a></li>
                         <li><a style="color:white" href="contact.html">Contact</a></li> 
@@ -134,19 +102,18 @@
         <div class="container"> 
         <div class="row bg-light py-3">
             <div class="col text-center">
->>>>>>> da1893092bc2971821116b18322751fc975b2879
             All Node List
+            </div>
         </div>
-    </div>
-    <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Node</th>
-                <th scope="col">Affiliation</th>
-                <th scope="col">Name</th>
-                <th scope="col">ECG Chart</th>
-                <th scope="col">Detail</th>
+            <th scope="col">#</th>
+            <th scope="col">Node</th>
+            <th scope="col">Affiliation</th>
+            <th scope="col">Name</th>
+            <th scope="col">ECG Chart</th>
+            <th scope="col">Detail</th>            
             </tr>
         </thead>
         <tbody>
@@ -163,11 +130,9 @@
                     </a>
                 </td>
                 <td>
-                    <a href="/ecg-detail">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('detail') }}
-                        </button>
-                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('detail') }}
+                    </button>
                 </td>
             </tr>
             <tr>
@@ -423,15 +388,9 @@
                 </td>
             </tr>
         </tbody>
-<<<<<<< HEAD
-    </table>
-</body>
-
-=======
         </table>
         </div>
         </div>
     </div>
 </body>
->>>>>>> da1893092bc2971821116b18322751fc975b2879
 </html>
