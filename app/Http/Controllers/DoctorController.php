@@ -24,12 +24,18 @@ class DoctorController extends Controller
     {
         $patient = DB::table('patient')
             ->where('id', $id)->first();
-        return view('chart.realtimeChart',['patient' => $patient]);
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
 
     public function showChart_test()
     {
-        return view('chart.realtimeChart');
+        $patient = DB::table('patient')
+            ->where('id', 1)->first();
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
     public function showListPatient()
     {
