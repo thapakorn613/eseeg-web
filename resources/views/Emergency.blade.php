@@ -11,10 +11,11 @@
     <div class="container">
         <div class="wrapper">
             <div class="one bg-dark">
+            date("Y/m/d")
                 <table class="table table-sm table-hover text-md-center">
                     <thead>
                         <tr>
-                            <th scope="col">Node</th>
+                            <th scope="col">Node </th>
                             <th scope="col">Affiliation</th>
                             <th scope="col">Name</th>
                             <th scope="col-3">ECG Chart</th>

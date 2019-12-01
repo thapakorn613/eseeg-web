@@ -140,8 +140,8 @@
                             var rangeOfButton = 3;
                             var rangeOfTop = 0.5 + (numOfSet * 2);
                             setInterval(function() {
-                                console.log("test[counttt] : ", count);
-                                console.log(textECG_firebase[count].I+"+"+textECG_firebase[count].II)
+                                //console.log("test[counttt] : ", count);
+                                //console.log(textECG_firebase[count].I+"+"+textECG_firebase[count].II)
                                 Plotly.extendTraces(graphDiv, {
                                     y: [
                                         //[getData(textECG.y[count], 0)],
@@ -235,7 +235,13 @@
       };
       firebase.initializeApp(config);
       var database = firebase.database();
-      database.ref("1234567891234/158/1ecglog").on('value', function(snapshot){
+      var today = new Date();
+      var year =  today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+      console.log("Year : ",year,"Month : ",month,"Day : ",day);
+
+      database.ref("101"+"/"+year+"/"+month+"/"+day+"/1ecglog").on('value', function(snapshot){
             if(snapshot.exists()){
                 var content = '';
                 snapshot.forEach(function(data){
@@ -254,7 +260,7 @@
                     
                 });
                 var theDiv = document.getElementById("ex-table");
-                theDiv.innerHTML += content; 
+                //theDiv.innerHTML += content; 
                 //$('#ex-table').append(content);
             }
       });
