@@ -25,7 +25,7 @@
                             <td style="color:white">{{$patients_EM[$i]->type_disease}}</td>
                             <td style="color:white">{{$patients_EM[$i]->f_name}} {{$patients_EM[$i]->f_name}}</td>
                             <td style="color:white">
-                                <a href="{{ action('DoctorController@showChart',$patients_EM[$i]->id)}}">
+                                <a href="{{ action('DoctorController@showChart_Log',$patients_EM[$i]->id)}}">
                                     <button type="submit" class="btn btn-danger btn-sm" style="color:white">
                                         {{ __('ECG Chart') }}
                                     </button>
@@ -37,7 +37,7 @@
                                 <td style="color:white">{{$patients_NM[$i]->type_disease}}</td>
                                 <td style="color:white">{{$patients_NM[$i]->f_name}} {{$patients_NM[$i]->l_name}}</td>
                                 <td style="color:white">
-                                    <a href="{{ action('DoctorController@showChart_test')}}">
+                                    <a href="{{ action('DoctorController@showChart_Log_test')}}">
                                         <button type="submit" class="btn btn-warning btn-sm" style="color:white">
                                             {{ __('ECG Chart') }}
                                         </button>
