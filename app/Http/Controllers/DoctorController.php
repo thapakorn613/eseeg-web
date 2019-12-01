@@ -14,7 +14,6 @@ use App\Mail\WelcomeUser;
 
 class DoctorController extends Controller
 {
-
     public function showListDoctor()
     {
         $users = DB::table('users')->get();
@@ -23,30 +22,31 @@ class DoctorController extends Controller
 
     public function showChart($id)
     {
-        // $patient = DB::table('patient')->get();
-        // if($id == "1"){
-            return view('Patient_Log');
-        // }
-        // else {
-            // return view('home');    
-        // }
-        // return view('home');  
+        $patient = DB::table('patient')
+            ->where('id', $id)->first();
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
 
     public function showChart_test()
     {
-        return view('chart.Patient_Log');
+        $patient = DB::table('patient')
+            ->where('id', 1)->first();
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
     public function showListPatient()
     {
         $patients_EM = DB::table('patient')
-            ->where('type_disease', 'EM')->get();;
+            ->where('type_disease', 'EM')->get();
 
         $patients_NM = DB::table('patient')
-            ->where('type_disease', 'NM')->get();;
+            ->where('type_disease', 'NM')->get();
 
         $patients_NT = DB::table('patient')
-            ->where('type_disease', 'NT')->get();;
+            ->where('type_disease', 'NT')->get();
         return view('Patient', ['patients_EM' => $patients_EM, 'patients_NM' => $patients_NM, 'patients_NT' => $patients_NT]);
     }
     public function showListEM()

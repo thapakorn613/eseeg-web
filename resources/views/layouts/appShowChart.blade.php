@@ -82,12 +82,11 @@
     <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
         <center>
             @section('sidebar')
-            <a style="color:white">ArtRonin TEST</a>
+            <a style="color:white">Show chart TEST</a>
             @show
             <div class="container">
                 @yield('content')
             </div>
-
             <script src="js/jquery-3.3.1.min.js"></script>
             <script src="js/jquery-ui.js"></script>
             <script src="js/popper.min.js"></script>
@@ -96,7 +95,6 @@
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/aos.js"></script>
             <script src="js/main.js"></script>
-
         </center>
     </div>
 </body>
