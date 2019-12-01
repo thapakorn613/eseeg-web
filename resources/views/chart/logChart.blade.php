@@ -1,9 +1,9 @@
-@extends('layouts.appShowChart')
+@extends('layouts.app')
 @section('content')
 
 <div class="nav nav-pills nav-justified">
     <div class="d-flex align-items-center justify-content-between">
-        <a href="{{ action('MenuController@toHome')}}"><img src="images/icon_patient1.png" width="300px" hight="200px"></a>
+        <a href="{{ action('MenuController@toHome')}}"><img src="{{ asset('images/icon_patient1.png') }}" width="300px" hight="200px"></a>
     </div>
 </div>
 <div class="container">
@@ -39,16 +39,15 @@
         </div>
         <div class="two bg-light">
             <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-            <center>
+            
                 <div class="navbar">
                     <span>Real-Time Chart with Plotly.js</span>
                 </div>
-                <a href="{{ action('DoctorController@showListDoctor') }}"> art
-                </a>
+                <a href="{{ action('DoctorController@showListDoctor') }}"> art</a>
                 <div id="graphDiv_Log_1"></div>
-        </div>
-        </center>
+        </div>   
     </div>
+
     <div class="wrapper">
         <table class="table table-sm table-hover text-md-center">
             <div id="graphDiv_Log_2"></div>
@@ -56,6 +55,7 @@
             <div id="graphDiv_Log_4"></div>
         </table>
     </div>
+    
 </div>
 
 <script>

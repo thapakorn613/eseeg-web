@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 <div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
@@ -21,12 +22,10 @@
             </div>
             <div class="two bg-light">
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <center>
                     <div class="navbar">
                         <span>Real-Time Chart with Plotly.js</span>
                     </div>
-                    <a href="{{ action('DoctorController@showListDoctor') }}"> art
-                    </a>
+                    <a href="{{ action('DoctorController@showListDoctor') }}"> art</a>
                     <div id="graphDiv"></div>
                     <script>
                         var textECG = {
@@ -103,9 +102,9 @@
                     </script>
             </div>
 
-            </center>
+           
         </div>
     </div>
 </div>
-</div>
+
 @stop
