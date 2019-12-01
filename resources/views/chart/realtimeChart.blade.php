@@ -176,27 +176,27 @@
 </div>
 <script>
     var textECG_firebase = [];
-    // function checkChart_1() {
-    //     var checkBox_chart_1 = document.getElementById("chart_1");
-    //     var graphDiv_realTime_1 = document.getElementById("graphDiv_realTime_1");
+    function checkChart_1() {
+        var checkBox_chart_1 = document.getElementById("chart_1");
+        var graphDiv_realTime_1 = document.getElementById("graphDiv_realTime_1");
 
-    //     if (checkBox_chart_1.checked == true) {
-    //         graphDiv_realTime_1.style.display = "block";
-    //     } else {
-    //         graphDiv_realTime_1.style.display = "none";
-    //     }
-    // }
+        if (checkBox_chart_1.checked == true) {
+            graphDiv_realTime_1.style.display = "block";
+        } else {
+            graphDiv_realTime_1.style.display = "none";
+        }
+    }
 
-    // function checkChart_2() {
-    //     var checkBox_chart_2 = document.getElementById("chart_2");
-    //     var graphDiv_realTime_2 = document.getElementById("graphDiv_realTime_2");
+    function checkChart_2() {
+        var checkBox_chart_2 = document.getElementById("chart_2");
+        var graphDiv_realTime_2 = document.getElementById("graphDiv_realTime_2");
 
-    //     if (checkBox_chart_2.checked == true) {
-    //         graphDiv_realTime_2.style.display = "block";
-    //     } else {
-    //         graphDiv_realTime_2.style.display = "none";
-    //     }
-    // }
+        if (checkBox_chart_2.checked == true) {
+            graphDiv_realTime_2.style.display = "block";
+        } else {
+            graphDiv_realTime_2.style.display = "none";
+        }
+    }
     
     var status_chart_1 = '<?php echo $status_chart->chart_1; ?>';
     var status_chart_2 = '<?php echo $status_chart->chart_2; ?>';
