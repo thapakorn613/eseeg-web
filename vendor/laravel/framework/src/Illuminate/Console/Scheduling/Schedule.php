@@ -5,8 +5,8 @@ namespace Illuminate\Console\Scheduling;
 use DateTimeInterface;
 use Illuminate\Console\Application;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\ProcessUtils;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Schedule
 {
@@ -32,22 +32,12 @@ class Schedule
     protected $schedulingMutex;
 
     /**
-     * The timezone the date should be evaluated on.
-     *
-     * @var \DateTimeZone|string
-     */
-    protected $timezone;
-
-    /**
      * Create a new schedule instance.
      *
-     * @param  \DateTimeZone|string|null  $timezone
      * @return void
      */
-    public function __construct($timezone = null)
+    public function __construct()
     {
-        $this->timezone = $timezone;
-
         $container = Container::getInstance();
 
         $this->eventMutex = $container->bound(EventMutex::class)
@@ -129,7 +119,7 @@ class Schedule
             $command .= ' '.$this->compileParameters($parameters);
         }
 
-        $this->events[] = $event = new Event($this->eventMutex, $command, $this->timezone);
+        $this->events[] = $event = new Event($this->eventMutex, $command);
 
         return $event;
     }
