@@ -5,7 +5,7 @@
     @if (Route::has('login'))
     <div class="top-right links">
         @auth
-        <a href="{{ url('/home') }}">Home</a>
+        <a href="{{ action('MenuController@toHome')}}">Home</a>
         @else
         <a href="{{ route('login') }}">Login</a>
 
@@ -33,7 +33,7 @@
         <div class="site-block-cover-content text-center">
             <div class="content">
                 <div class="card-body">
-                    <a href="/home" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ action('MenuController@toHome')}}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
