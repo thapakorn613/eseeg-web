@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="site-blocks-cover" style="background-image: url('images/bg_2.jpg');">
     <div class="nav nav-pills nav-justified">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ action('MenuController@toHome')}}"><img src="images/icon_emer1.png" width="300px" hight="200px"></a>
@@ -27,7 +26,7 @@
                             <td>{{$patient[$i]->type_disease}}</td>
                             <td>{{$patient[$i]->f_name}} {{$patient[$i]->l_name}}</td>
                             <td>
-                                <a href="/ecg-chart">
+                                <a href="{{ action('DoctorController@showChart_Realtime_test')}}">
                                     <button type="submit" class="btn btn-danger">
                                         {{ __('ecg chart') }}
                                     </button>

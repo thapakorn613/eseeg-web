@@ -29,6 +29,7 @@ interface PasswordBroker
 
     /**
      * Constant representing an invalid token.
+
      *
      * @var string
      */
@@ -36,6 +37,7 @@ interface PasswordBroker
 
     /**
      * Constant representing a throttled reset attempt.
+
      *
      * @var string
      */

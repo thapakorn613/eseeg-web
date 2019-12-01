@@ -20,7 +20,7 @@ class DoctorController extends Controller
         return view('Advice', ['users' => $users]);
     }
 
-    public function showChart($id)
+    public function showChart_Realtime($id)
     {
         $patient = DB::table('patient')
             ->where('id', $id)->first();
@@ -29,7 +29,7 @@ class DoctorController extends Controller
         return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
 
-    public function showChart_test()
+    public function showChart_Realtime_test()
     {
         $patient = DB::table('patient')
             ->where('id', 1)->first();
@@ -37,6 +37,26 @@ class DoctorController extends Controller
             ->where('patient_id', $patient->id)->first();
         return view('chart.realtimeChart', ['patient' => $patient, 'status_chart' => $status_chart]);
     }
+    public function showChart_Log($id)
+    {
+        $patient = DB::table('patient')
+            ->where('id', $id)->first();
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.logChart', ['patient' => $patient, 'status_chart' => $status_chart]);
+    }
+
+    public function showChart_Log_test()
+    {
+        $patient = DB::table('patient')
+            ->where('id', 1)->first();
+        $status_chart = DB::table('status_chart')
+            ->where('patient_id', $patient->id)->first();
+        return view('chart.logChart', ['patient' => $patient, 'status_chart' => $status_chart]);
+    }
+
+
+
     public function showListPatient()
     {
         $patients_EM = DB::table('patient')

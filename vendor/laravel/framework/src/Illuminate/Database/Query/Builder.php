@@ -228,7 +228,12 @@ class Builder
         $columns = is_array($columns) ? $columns : func_get_args();
 
         foreach ($columns as $as => $column) {
-            if (is_string($as) && $this->isQueryable($column)) {
+
+            if (is_string($as) && (
+                $column instanceof self ||
+                $column instanceof EloquentBuilder ||
+                $column instanceof Closure
+            )) {
                 $this->selectSub($column, $as);
             } else {
                 $this->columns[] = $column;
@@ -358,7 +363,12 @@ class Builder
         $columns = is_array($column) ? $column : func_get_args();
 
         foreach ($columns as $as => $column) {
-            if (is_string($as) && $this->isQueryable($column)) {
+
+            if (is_string($as) && (
+                $column instanceof self ||
+                $column instanceof EloquentBuilder ||
+                $column instanceof Closure
+            )) {
                 if (is_null($this->columns)) {
                     $this->select($this->from.'.*');
                 }
@@ -399,7 +409,10 @@ class Builder
      */
     public function from($table, $as = null)
     {
-        if ($this->isQueryable($table)) {
+
+        if ($table instanceof self ||
+            $table instanceof EloquentBuilder ||
+            $table instanceof Closure) {
             return $this->fromSub($table, $as);
         }
 
@@ -884,7 +897,10 @@ class Builder
         // If the value is a query builder instance we will assume the developer wants to
         // look for any values that exists within this given query. So we will add the
         // query accordingly so that this query is properly executed when it is run.
-        if ($this->isQueryable($values)) {
+
+        if ($values instanceof self ||
+            $values instanceof EloquentBuilder ||
+            $values instanceof Closure) {
             [$query, $bindings] = $this->createSub($values);
 
             $values = [new Expression($query)];
@@ -1798,7 +1814,9 @@ class Builder
      */
     public function orderBy($column, $direction = 'asc')
     {
+
         if ($this->isQueryable($column)) {
+
             [$query, $bindings] = $this->createSub($column);
 
             $column = new Expression('('.$query.')');
