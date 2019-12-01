@@ -175,6 +175,7 @@
     </div>
 </div>
 <script>
+    var textECG_firebase = [];
     function checkChart_1() {
         var checkBox_chart_1 = document.getElementById("chart_1");
         var graphDiv_realTime_1 = document.getElementById("graphDiv_realTime_1");
@@ -430,6 +431,15 @@
     var setECG = [];
 
     setInterval(function() {
+
+        
+        /*Plotly.extendTraces(graphDiv, {
+            y: [
+                // [getData(textECG.y[count], 0)],
+                // [getData(textECG2.y[count], 2)]
+                [getData(textECG_firebase[count].I, 0)],
+                [getData(textECG_firebase[count].II, 2)]
+        */
         cnt = cnt + 1;
         //! Chart Main - BEGIN
         Plotly.extendTraces(graphDiv_realTime_main, {
@@ -437,6 +447,7 @@
                 [getData(textECG_main.y[count], 0)],
                 [getData(textECG_sub_1.y[count], 2)],
                 [getData(textECG_sub_1.y[count], 4)]
+
             ]
         }, [0, 1, 2]);
         
@@ -505,4 +516,55 @@
         }
     }, 20);
 </script>
+
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+      
+      <!--Configure firebase-->
+      <script>
+      var txt_title,txt_content,txt_img ='';
+      var config = {
+        apiKey: "AIzaSyCRkA7lUQPN7RnetG0238geK6BwTiCUrpQ",
+        authDomain: "ecg-261405.firebaseapp.com",
+        databaseURL: "https://ecg-261405.firebaseio.com",
+        projectId: "ecg-261405",
+        storageBucket: "ecg-261405.appspot.com",
+        messagingSenderId: "727005807636",
+        appId: "1:727005807636:web:6ff5055249f7fb06a79301",
+        measurementId: "G-5PSDECTKDX"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+      var today = new Date();
+      var year =  today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+      console.log("Year : ",year,"Month : ",month,"Day : ",day);
+
+      database.ref("101"+"/"+year+"/"+month+"/"+day+"/1ecglog").on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log("row",data.val());
+                    console.log("title",data.getKey());
+                    textECG_firebase.push(val);
+                  
+                    content +='<tr>';
+                    content += '<td>' + data.getKey() + '</td>';
+                    content += '<td>' + val.time + '</td>';
+                    content += '<td>' + val.content + '</td>';
+                    content += '<td><a href="'+val.thumbnail+'" target="_blank"> Click for Preview</a></td>';
+                    content += '<td><a href="edit.html?id='+data.getKey()+'" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Edit</a></td>';
+                    content += '</tr>';
+                    
+                });
+                var theDiv = document.getElementById("ex-table");
+                //theDiv.innerHTML += content; 
+                //$('#ex-table').append(content);
+            }
+      });
+    </script>
+</center>
+
 @stop

@@ -3,8 +3,8 @@
 namespace Illuminate\Foundation\Providers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\AggregateServiceProvider;
 
 class FoundationServiceProvider extends AggregateServiceProvider
 {
@@ -16,18 +16,6 @@ class FoundationServiceProvider extends AggregateServiceProvider
     protected $providers = [
         FormRequestServiceProvider::class,
     ];
-
-    /**
-     * Boot the service provider.
-     */
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../Exceptions/views' => $this->app->resourcePath('views/errors/'),
-            ], 'laravel-errors');
-        }
-    }
 
     /**
      * Register the service provider.
@@ -61,8 +49,8 @@ class FoundationServiceProvider extends AggregateServiceProvider
      */
     public function registerRequestSignatureValidation()
     {
-        Request::macro('hasValidSignature', function ($absolute = true) {
-            return URL::hasValidSignature($this, $absolute);
+        Request::macro('hasValidSignature', function () {
+            return URL::hasValidSignature($this);
         });
     }
 }
