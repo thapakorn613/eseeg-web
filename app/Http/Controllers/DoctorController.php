@@ -35,7 +35,7 @@ class DoctorController extends Controller
 
     public function showChart_test()
     {
-        return view('Patient_Log');
+        return view('chart.Patient_Log');
     }
     public function showListPatient()
     {

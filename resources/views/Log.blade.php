@@ -110,7 +110,7 @@
                             var rangeOfButton = 3;
                             var rangeOfTop = 0.5 + (numOfSet * 2);
                             setInterval(function() {
-                                console.log("test[count] : ", textECG.y[count]);
+                               // console.log("test[count] : ", textECG.y[count]);
                                 Plotly.extendTraces(graphDiv, {
                                     y: [
                                         [getData(textECG.y[count], 0)],
