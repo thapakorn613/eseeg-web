@@ -81,7 +81,7 @@
 </head>
 
 <body>
-    <div class="site-blocks-cover" style="background-image: url({{ asset('images/bg_2.jpg')}});">  
+    <div class="site-blocks" style="background-image: url({{ asset('images/bg_2.jpg')}});">  
         @section('sidebar')
         <a style="color:white"></a>
         @show

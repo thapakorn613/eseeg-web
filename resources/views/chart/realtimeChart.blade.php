@@ -179,6 +179,7 @@
         </div>
     </div>
     <div class= 'container text-center'>
+        <div class="card-body  text-lg text-center">    
         <div class="wrapper ">
             
                 @if($status_chart->chart_1 == 1 )
@@ -218,6 +219,7 @@
                 <div id="graphDiv_realTime_12" ></div>
                 @endif
             
+        </div>
         </div>
     </div>
 </div>
@@ -834,7 +836,7 @@
                 l: 30,
                 r: 30,
                 b: 30,
-                t: 10,
+                t: 50,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
@@ -843,7 +845,7 @@
         Plotly.newPlot(graphDiv_realTime_4, [{
             y: [getData0(textECG_sub_4)],
             type: 'line'
-        }]);
+        }], layout_chart_4);
     }
     if (status_chart_5 == 1) {
         var layout_chart_5 = {
@@ -855,7 +857,7 @@
                 l: 30,
                 r: 30,
                 b: 30,
-                t: 10,
+                t: 50,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
@@ -864,7 +866,7 @@
         Plotly.newPlot(graphDiv_realTime_5, [{
             y: [getData0(textECG_sub_5)],
             type: 'line'
-        }]);
+        }], layout_chart_5);
     }
     if (status_chart_6 == 1) {
         var layout_chart_6 = {
@@ -876,16 +878,16 @@
                 l: 30,
                 r: 30,
                 b: 30,
-                t: 10,
+                t: 50,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_6, [{
-            y: [getData0(textECG_sub_6)],
+            y: [getData0(textECG_sub_1)],
             type: 'line'
-        }]);
+        }], layout_chart_6);
     }
     if (status_chart_7 == 1) {
         var layout_chart_3 = {
@@ -904,9 +906,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_7, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_7)],
             type: 'line'
-        }]);
+        }], layout_chart_7);
     }
     if (status_chart_8 == 1) {
         var layout_chart_8 = {
@@ -925,9 +927,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_8, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_8)],
             type: 'line'
-        }]);
+        }], layout_chart_8);
     }
     if (status_chart_9 == 1) {
         var layout_chart_9 = {
@@ -946,9 +948,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_9, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_9)],
             type: 'line'
-        }]);
+        }], layout_chart_9);
     }
     if (status_chart_10 == 1) {
         var layout_chart_10 = {
@@ -967,9 +969,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_10, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_10)],
             type: 'line'
-        }]);
+        }], layout_chart_10);
     }
     if (status_chart_11 == 1) {
         var layout_chart_11 = {
@@ -988,9 +990,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_11, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_11)],
             type: 'line'
-        }]);
+        }], layout_chart_11);
     }
     if (status_chart_12 == 1) {
         var layout_chart_12 = {
@@ -1009,9 +1011,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_12, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_12)],
             type: 'line'
-        }]);
+        }], layout_chart_12);
     }
     //? Plot SUB CHART - END
 
