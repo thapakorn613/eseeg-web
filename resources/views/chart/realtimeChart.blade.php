@@ -48,7 +48,7 @@
                     Select Lead
                 </div>
             </div>
-            <table class="table table-sm  text-md-lefe">
+            <table class="table table-sm  text-md-center">
     
                 <tbody>
                     
@@ -56,7 +56,9 @@
                             @if($status_chart->chart_1 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1()"> - AVR</label>
+
+                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1() "  checked enabled> - AVR</label>
+
                                 </div>
                             </td>
                             @endif
@@ -71,20 +73,25 @@
                         <tr>
                             @if($status_chart->chart_3 == 1)
                             <td>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"> - AVF</label>
+                                <div class="checkbox" >
+                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"  checked enabled> - AVF</label>
+
                                 </div>
                             </td>
                             @endif
                             @if($status_chart->chart_4 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4()"> - I </label>
+                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4() "> - I </label>
+
                                 </div>
                             </td>
                             @endif
                         </tr>
                         <tr>
+                            <!-- Default unchecked disabled -->
+
+
                             @if($status_chart->chart_5 == 1)
                             <td>
                                 <div class="checkbox">
@@ -95,7 +102,8 @@
                             @if($status_chart->chart_6 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()"> - III</label>
+                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()" checked enabled > - III</label>
+
                                 </div>
                             </td>
                             @endif
@@ -158,14 +166,13 @@
                 <div class="card text-white text-center bg-danger mb-3">
                     <h3>Real-Time Chart with Plotly.js</h3>
                 </div>
-                
-                
-                <div id="graphDiv_realTime_main1" style="display:none"></div>
+                <div id="graphDiv_realTime_main1" style="display:block"></div>
                 <div id="graphDiv_realTime_main2" style="display:none"></div>
-                <div id="graphDiv_realTime_main3" style="display:none"></div>
+                <div id="graphDiv_realTime_main3" style="display:block"></div>
                 <div id="graphDiv_realTime_main4" style="display:none"></div>
                 <div id="graphDiv_realTime_main5" style="display:none"></div>
-                <div id="graphDiv_realTime_main6" style="display:none"></div>
+                <div id="graphDiv_realTime_main6" style="display:block"></div>
+
                 <div id="graphDiv_realTime_main7" style="display:none"></div>
                 <div id="graphDiv_realTime_main8" style="display:none"></div>
                 <div id="graphDiv_realTime_main9" style="display:none"></div>
@@ -175,9 +182,9 @@
                
         </div>
     </div>
-    <div class= 'container'>
-        <div class="wrapper four">
-            
+    <div class= 'container text-center'>
+        <div class="card-body  text-lg text-center">    
+        <div class="wrapper ">
                 @if($status_chart->chart_1 == 1 )
                 <div id="graphDiv_realTime_1"></div>
                 @endif
@@ -581,6 +588,21 @@
         paper_bgcolor: '#ffffff',
         plot_bgcolor: '#ffffff'
     };
+    var layout_main5 = {
+        title: "II",
+        autosize: false,
+        width: 700,
+        height: 150,
+        margin: {
+            l: 30,
+            r: 0,
+            b: 20,
+            t: 25,
+            pad: 2
+        },
+        paper_bgcolor: '#ffffff',
+        plot_bgcolor: '#ffffff'
+    };
     var layout_main6 = {
         title: "III",
         autosize: false,
@@ -831,6 +853,7 @@
                 l: 30,
                 r: 30,
                 b: 30,
+                t: 50,
                 t: 10,
                 pad: 2
             },
@@ -840,7 +863,7 @@
         Plotly.newPlot(graphDiv_realTime_4, [{
             y: [getData0(textECG_sub_4)],
             type: 'line'
-        }]);
+        }], layout_chart_4);
     }
     if (status_chart_5 == 1) {
         var layout_chart_5 = {
@@ -852,7 +875,7 @@
                 l: 30,
                 r: 30,
                 b: 30,
-                t: 10,
+                t: 50,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
@@ -861,7 +884,7 @@
         Plotly.newPlot(graphDiv_realTime_5, [{
             y: [getData0(textECG_sub_5)],
             type: 'line'
-        }]);
+        }], layout_chart_5);
     }
     if (status_chart_6 == 1) {
         var layout_chart_6 = {
@@ -873,7 +896,7 @@
                 l: 30,
                 r: 30,
                 b: 30,
-                t: 10,
+                t: 50,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
@@ -882,7 +905,7 @@
         Plotly.newPlot(graphDiv_realTime_6, [{
             y: [getData0(textECG_sub_6)],
             type: 'line'
-        }]);
+        }], layout_chart_6);
     }
     if (status_chart_7 == 1) {
         var layout_chart_3 = {
@@ -901,9 +924,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_7, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_7)],
             type: 'line'
-        }]);
+        }], layout_chart_7);
     }
     if (status_chart_8 == 1) {
         var layout_chart_8 = {
@@ -922,9 +945,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_8, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_8)],
             type: 'line'
-        }]);
+        }], layout_chart_8);
     }
     if (status_chart_9 == 1) {
         var layout_chart_9 = {
@@ -943,9 +966,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_9, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_9)],
             type: 'line'
-        }]);
+        }], layout_chart_9);
     }
     if (status_chart_10 == 1) {
         var layout_chart_10 = {
@@ -964,9 +987,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_10, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_10)],
             type: 'line'
-        }]);
+        }], layout_chart_10);
     }
     if (status_chart_11 == 1) {
         var layout_chart_11 = {
@@ -985,9 +1008,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_11, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_11)],
             type: 'line'
-        }]);
+        }], layout_chart_11);
     }
     if (status_chart_12 == 1) {
         var layout_chart_12 = {
@@ -1006,9 +1029,9 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_12, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_12)],
             type: 'line'
-        }]);
+        }], layout_chart_12);
     }
     //? Plot SUB CHART - END
 
@@ -1026,7 +1049,7 @@
         //! Chart Main - BEGIN
         Plotly.extendTraces(graphDiv_realTime_main1, {
             y: [
-                [getData(textECG_sub_1.y[count], 0)],
+                [getData(textECG_sub_1.y[count], 0)]
             ]
         }, [0]);
         
@@ -1181,6 +1204,123 @@
                 range: [3, 5]
             }
         });
+        Plotly.extendTraces(graphDiv_realTime_main4, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main4, {
+
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main5, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main5, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main6, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main6, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main7, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main7, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main8, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main8, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main9, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main9, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });Plotly.extendTraces(graphDiv_realTime_main10, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main10, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main11, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main11, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main12, {
+                y: [
+                    [getData(textECG_firebase[count].I, 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main12, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
         //! Chart Main - END
 
         //? Chart sub - 1
@@ -1188,7 +1328,7 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_1, {
                 y: [
-                    [getData(textECG_sub_1.y[count], 0)]
+                    [getData(textECG_firebase[count].I, 0)]
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_1, {
@@ -1204,7 +1344,7 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_2, {
                 y: [
-                    [getData(textECG_sub_2.y[count], 0)]
+                    [getData(textECG_firebase[count].I, 0)]
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_2, {
@@ -1220,7 +1360,7 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_3, {
                 y: [
-                    [getData(textECG_sub_3.y[count], 0)]
+                    [getData(textECG_firebase[count].I, 0)]
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_3, {
@@ -1236,7 +1376,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_4, {
                 y: [
-                    [getData(textECG_sub_4.y[count], 0)]
+                    [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_4, {
@@ -1252,7 +1393,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_5, {
                 y: [
-                    [getData(textECG_sub_5.y[count], 0)]
+          [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_5, {
@@ -1268,7 +1410,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_6, {
                 y: [
-                    [getData(textECG_sub_6.y[count], 0)]
+
+                    [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_6, {
@@ -1284,7 +1428,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_7, {
                 y: [
-                    [getData(textECG_sub_7.y[count], 0)]
+                   [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_7, {
@@ -1300,7 +1445,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_8, {
                 y: [
-                    [getData(textECG_sub_8.y[count], 0)]
+
+                    [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_8, {
@@ -1316,7 +1463,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_9, {
                 y: [
-                    [getData(textECG_sub_9.y[count], 0)]
+                   [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_9, {
@@ -1332,7 +1480,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_10, {
                 y: [
-                    [getData(textECG_sub_10.y[count], 0)]
+
+                    [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_10, {
@@ -1348,7 +1498,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_11, {
                 y: [
-                    [getData(textECG_sub_11.y[count], 0)]
+
+                    [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_11, {
@@ -1364,7 +1516,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_12, {
                 y: [
-                    [getData(textECG_sub_12.y[count], 0)]
+            [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_12, {
@@ -1376,29 +1529,76 @@
                 }
             });
         }
-        // if (status_chart_3 == 1) {
-        //     // Chart sub - 3
-        //     Plotly.extendTraces(graphDiv_realTime_3, {
-        //         y: [
-        //             [getData(textECG_main.y[count], 0)]
-        //         ]
-        //     }, [0]);
-        //     Plotly.relayout(graphDiv_realTime_3, {
-        //         xaxis: {
-        //             range: [cnt - 100, cnt]
-        //         },
-        //         yaxis: {
-        //             range: [3, 5]
-        //         }
-        //     });
-        // }
         count++;
-        if (count >= 50) {
+        if (count >= textECG_firebase.length) {
             count = 0;
         }
     }, 20);
 </script>
-
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+      
+      <!--Configure firebase-->
+      <script>
+      var txt_title,txt_content,txt_img ='';
+      var config = {
+        apiKey: "AIzaSyCRkA7lUQPN7RnetG0238geK6BwTiCUrpQ",
+        authDomain: "ecg-261405.firebaseapp.com",
+        databaseURL: "https://ecg-261405.firebaseio.com",
+        projectId: "ecg-261405",
+        storageBucket: "ecg-261405.appspot.com",
+        messagingSenderId: "727005807636",
+        appId: "1:727005807636:web:6ff5055249f7fb06a79301",
+        measurementId: "G-5PSDECTKDX"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth()+1;
+      var day = date.getDate();
+      var hour = date.getHours();
+      var min = date.getMinutes();
+      console.log(day + ":" + month + ":" + year + "  " + hour + ":" + min)
+      database.ref("101/"+year+"/"+month+"/"+day).on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log("zz",data.val());
+                    console.log("yy",data.getKey());
+                    textECG_firebase.push(val);
+                    
+                });
+                var theDiv = document.getElementById("ex-table");
+                theDiv.innerHTML += content; 
+                //$('#ex-table').append(content);
+            }
+      });
+      
+      database.ref("101/"+year+"/"+month+"/"+day+"/11:00/1ecglog").on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log("row",data.val());
+                    console.log("title",data.getKey());
+                    textECG_firebase.push(val);
+                  
+                    content +='<tr>';
+                    content += '<td>' + data.getKey() + '</td>';
+                    content += '<td>' + val.time + '</td>';
+                    content += '<td>' + val.content + '</td>';
+                    content += '<td><a href="'+val.thumbnail+'" target="_blank"> Click for Preview</a></td>';
+                    content += '<td><a href="edit.html?id='+data.getKey()+'" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Edit</a></td>';
+                    content += '</tr>';
+                    
+                });
+                var theDiv = document.getElementById("ex-table");
+                theDiv.innerHTML += content; 
+                //$('#ex-table').append(content);
+            }
+      });
+    </script>
 
 
 @stop

@@ -2,14 +2,14 @@
 
 namespace Illuminate\Database\Schema\Grammars;
 
-use Doctrine\DBAL\Schema\AbstractSchemaManager as SchemaManager;
-use Doctrine\DBAL\Schema\Comparator;
-use Doctrine\DBAL\Schema\Table;
-use Doctrine\DBAL\Types\Type;
-use Illuminate\Database\Connection;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Fluent;
 use RuntimeException;
+use Doctrine\DBAL\Types\Type;
+use Illuminate\Support\Fluent;
+use Doctrine\DBAL\Schema\Table;
+use Illuminate\Database\Connection;
+use Doctrine\DBAL\Schema\Comparator;
+use Illuminate\Database\Schema\Blueprint;
+use Doctrine\DBAL\Schema\AbstractSchemaManager as SchemaManager;
 
 class ChangeColumn
 {
@@ -82,10 +82,7 @@ class ChangeColumn
                 if (! is_null($option = static::mapFluentOptionToDoctrine($key))) {
                     if (method_exists($column, $method = 'set'.ucfirst($option))) {
                         $column->{$method}(static::mapFluentValueToDoctrine($option, $value));
-                        continue;
                     }
-
-                    $column->setCustomSchemaOption($option, static::mapFluentValueToDoctrine($option, $value));
                 }
             }
         }
@@ -121,7 +118,7 @@ class ChangeColumn
             $options['length'] = static::calculateDoctrineTextLength($fluent['type']);
         }
 
-        if (in_array($fluent['type'], ['json', 'binary'])) {
+        if ($fluent['type'] === 'json') {
             $options['customSchemaOptions'] = [
                 'collation' => '',
             ];

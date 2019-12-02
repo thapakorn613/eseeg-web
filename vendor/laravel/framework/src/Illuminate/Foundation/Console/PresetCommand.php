@@ -2,8 +2,8 @@
 
 namespace Illuminate\Foundation\Console;
 
-use Illuminate\Console\Command;
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 
 class PresetCommand extends Command
 {
@@ -27,8 +27,6 @@ class PresetCommand extends Command
      * Execute the console command.
      *
      * @return void
-     *
-     * @throws \InvalidArgumentException
      */
     public function handle()
     {

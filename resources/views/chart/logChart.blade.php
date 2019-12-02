@@ -11,10 +11,13 @@
         <div class="wrapper">
             <div class="one bg-light">
                 <table class="table table-sm table-hover text-md-center">
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
+                    DATA USER
+                    </div>
+                </div>
                     <thead>
-                        <tr>
-                            <th scope="col">DATA USER</th>
-                        </tr>
+                        
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
@@ -28,16 +31,20 @@
                             <td>{{$patient->f_name}}</td>
                             <td>{{$patient->l_name}}</td>
                             <td>
-                                <a href="#">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('advice') }}
-                                    </button>
-                                </a>
+                            <a href="{{ action('DoctorController@showListDoctor') }}">
+                                ADVICE
+                            </a> 
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
                 <table class="table table-sm table-hover text-md-center">
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
+                     SELECT LEAD
+                    </div>
+                </div>
                     <tbody>
                         <tr>
                             <td>
@@ -160,10 +167,13 @@
                 </table>
             </div>
             <div class="two bg-light">
-                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <div class="navbar">
-                    <span>Real-Time Chart with Plotly.js</span>
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
+                    Real-Time Chart with Plotly.js
+                    </div>
                 </div>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+               
                 <div id="graphDiv_Log_test" style="display:none"></div>
                 <div id="graphDiv_Log_1" style="display:none"></div>
                 <div id="graphDiv_Log_2" style="display:none"></div>
