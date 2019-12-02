@@ -2,13 +2,13 @@
 
 namespace Illuminate\Database\Eloquent;
 
-use Illuminate\Contracts\Queue\QueueableCollection;
-use Illuminate\Contracts\Queue\QueueableEntity;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection as BaseCollection;
-use Illuminate\Support\Str;
 use LogicException;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Contracts\Queue\QueueableCollection;
+use Illuminate\Support\Collection as BaseCollection;
 
 class Collection extends BaseCollection implements QueueableCollection
 {
@@ -17,7 +17,7 @@ class Collection extends BaseCollection implements QueueableCollection
      *
      * @param  mixed  $key
      * @param  mixed  $default
-     * @return \Illuminate\Database\Eloquent\Model|static|null
+     * @return \Illuminate\Database\Eloquent\Model|static
      */
     public function find($key, $default = null)
     {
@@ -75,21 +75,15 @@ class Collection extends BaseCollection implements QueueableCollection
             return $this;
         }
 
-        $models = $this->first()->newModelQuery()
+        $query = $this->first()->newModelQuery()
             ->whereKey($this->modelKeys())
             ->select($this->first()->getKeyName())
-            ->withCount(...func_get_args())
-            ->get();
+            ->withCount(...func_get_args());
 
-        $attributes = Arr::except(
-            array_keys($models->first()->getAttributes()),
-            $models->first()->getKeyName()
-        );
-
-        $models->each(function ($model) use ($attributes) {
+        $query->get()->each(function ($model) {
             $this->find($model->getKey())->forceFill(
-                Arr::only($model->getAttributes(), $attributes)
-            )->syncOriginalAttributes($attributes);
+                Arr::except($model->getAttributes(), $model->getKeyName())
+            );
         });
 
         return $this;
@@ -118,14 +112,10 @@ class Collection extends BaseCollection implements QueueableCollection
                 $segments[count($segments) - 1] .= ':'.explode(':', $key)[1];
             }
 
-            $path = [];
-
-            foreach ($segments as $segment) {
-                $path[] = [$segment => $segment];
-            }
+            $path = array_combine($segments, $segments);
 
             if (is_callable($value)) {
-                $path[count($segments) - 1][end($segments)] = $value;
+                $path[end($segments)] = $value;
             }
 
             $this->loadMissingRelation($this, $path);
@@ -141,9 +131,9 @@ class Collection extends BaseCollection implements QueueableCollection
      * @param  array  $path
      * @return void
      */
-    protected function loadMissingRelation(self $models, array $path)
+    protected function loadMissingRelation(Collection $models, array $path)
     {
-        $relation = array_shift($path);
+        $relation = array_splice($path, 0, 1);
 
         $name = explode(':', key($relation))[0];
 
@@ -182,9 +172,26 @@ class Collection extends BaseCollection implements QueueableCollection
             ->groupBy(function ($model) {
                 return get_class($model);
             })
+            ->filter(function ($models, $className) use ($relations) {
+                return Arr::has($relations, $className);
+            })
             ->each(function ($models, $className) use ($relations) {
-                static::make($models)->load($relations[$className] ?? []);
+                $className::with($relations[$className])
+                    ->eagerLoadRelations($models->all());
             });
+
+        return $this;
+    }
+
+    /**
+     * Add an item to the collection.
+     *
+     * @param  mixed  $item
+     * @return $this
+     */
+    public function add($item)
+    {
+        $this->items[] = $item;
 
         return $this;
     }
@@ -494,19 +501,6 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
-     * Get the comparison function to detect duplicates.
-     *
-     * @param  bool  $strict
-     * @return \Closure
-     */
-    protected function duplicateComparator($strict)
-    {
-        return function ($a, $b) {
-            return $a->is($b);
-        };
-    }
-
-    /**
      * Get the type of the entities being queued.
      *
      * @return string|null
@@ -541,7 +535,7 @@ class Collection extends BaseCollection implements QueueableCollection
             return [];
         }
 
-        return $this->first() instanceof QueueableEntity
+        return $this->first() instanceof Pivot
                     ? $this->map->getQueueableId()->all()
                     : $this->modelKeys();
     }
