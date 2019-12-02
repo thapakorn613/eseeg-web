@@ -82,7 +82,6 @@
                             @if($status_chart->chart_4 == 1)
                             <td>
                                 <div class="checkbox">
-
                                     <label><input type="checkbox" id="chart_4" onclick="checkChart_4() "> - I </label>
 
                                 </div>
@@ -167,7 +166,6 @@
                 <div class="card text-white text-center bg-danger mb-3">
                     <h3>Real-Time Chart with Plotly.js</h3>
                 </div>
-            
                 <div id="graphDiv_realTime_main1" style="display:block"></div>
                 <div id="graphDiv_realTime_main2" style="display:none"></div>
                 <div id="graphDiv_realTime_main3" style="display:block"></div>
@@ -187,7 +185,6 @@
     <div class= 'container text-center'>
         <div class="card-body  text-lg text-center">    
         <div class="wrapper ">
-            
                 @if($status_chart->chart_1 == 1 )
                 <div id="graphDiv_realTime_1"></div>
                 @endif
@@ -225,7 +222,6 @@
                 <div id="graphDiv_realTime_12" ></div>
                 @endif
             
-        </div>
         </div>
     </div>
 </div>
@@ -592,6 +588,21 @@
         paper_bgcolor: '#ffffff',
         plot_bgcolor: '#ffffff'
     };
+    var layout_main5 = {
+        title: "II",
+        autosize: false,
+        width: 700,
+        height: 150,
+        margin: {
+            l: 30,
+            r: 0,
+            b: 20,
+            t: 25,
+            pad: 2
+        },
+        paper_bgcolor: '#ffffff',
+        plot_bgcolor: '#ffffff'
+    };
     var layout_main6 = {
         title: "III",
         autosize: false,
@@ -843,6 +854,7 @@
                 r: 30,
                 b: 30,
                 t: 50,
+                t: 10,
                 pad: 2
             },
             paper_bgcolor: '#ffffff',
@@ -891,7 +903,7 @@
             plot_bgcolor: '#ffffff'
         };
         Plotly.newPlot(graphDiv_realTime_6, [{
-            y: [getData0(textECG_sub_1)],
+            y: [getData0(textECG_sub_6)],
             type: 'line'
         }], layout_chart_6);
     }
@@ -1198,6 +1210,7 @@
                 ]
             }, [0]);
         Plotly.relayout(graphDiv_realTime_main4, {
+
             xaxis: {
                 range: [cnt - 200, cnt]
             },
@@ -1364,6 +1377,7 @@
             Plotly.extendTraces(graphDiv_realTime_4, {
                 y: [
                     [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_4, {
@@ -1379,7 +1393,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_5, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+          [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_5, {
@@ -1395,7 +1410,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_6, {
                 y: [
+
                     [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_6, {
@@ -1411,7 +1428,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_7, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+                   [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_7, {
@@ -1427,7 +1445,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_8, {
                 y: [
+
                     [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_8, {
@@ -1443,7 +1463,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_9, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+                   [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_9, {
@@ -1459,7 +1480,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_10, {
                 y: [
+
                     [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_10, {
@@ -1475,7 +1498,9 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_11, {
                 y: [
+
                     [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_11, {
@@ -1491,7 +1516,8 @@
             // Chart sub - 3
             Plotly.extendTraces(graphDiv_realTime_12, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+            [getData(textECG_firebase[count].I, 0)]
+
                 ]
             }, [0]);
             Plotly.relayout(graphDiv_realTime_12, {
