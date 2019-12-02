@@ -8,9 +8,7 @@
         </div>
     </div>
     <div class="container">
-
-        <div class="wrapper">
-            <div class="one bg-dark">
+            <div class="bg-dark">
                 <table class="table table-sm table-hover text-md-center">
                     <thead>
                         <tr>
