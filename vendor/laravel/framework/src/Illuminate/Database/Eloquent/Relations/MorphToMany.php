@@ -2,9 +2,9 @@
 
 namespace Illuminate\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class MorphToMany extends BelongsToMany
 {
@@ -180,15 +180,5 @@ class MorphToMany extends BelongsToMany
     public function getMorphClass()
     {
         return $this->morphClass;
-    }
-
-    /**
-     * Get the indicator for a reverse relationship.
-     *
-     * @return bool
-     */
-    public function getInverse()
-    {
-        return $this->inverse;
     }
 }
