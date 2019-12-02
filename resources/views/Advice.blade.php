@@ -18,7 +18,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Surname</th>
+                            <th scope="col">E-mail</th>
                             <th scope="col">Detail</th>
                         </tr>
                     </thead>

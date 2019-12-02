@@ -1,5 +1,5 @@
-@extends('layouts.appShowChart')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <!-- <script src="./../../storage/plotly.min.js"></script> -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

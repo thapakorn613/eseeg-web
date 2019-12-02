@@ -16,6 +16,11 @@
         <div class="wrapper">
             <div class="one bg-light">
                 <table class="table table-sm table-hover text-md-center">
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
+                    DATA USER
+                    </div>
+                </div>
                     <thead>
                         <div class="card text-white bg-success mb-3">
                             <div class="card-body text-white text-center">
@@ -40,12 +45,13 @@
                         </tr>
                     </tbody>
                 </table>
+
                 <table class="table table-sm table-hover text-md-center">
-                    <thead>
-                        <tr>
-                            <th scope="col">Select time</th>
-                        </tr>
-                    </thead>
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
+                     SELECT LEAD
+                    </div>
+                </div>
                     <tbody>
                         <tr>
                             <td>
@@ -201,9 +207,13 @@
             </div>
             <div class="two bg-light">
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <div class="navbar">
+                <div class="card text-black bg-light ">
+                    <div class="card-body  text-lg text-center">
                     <span> ECG Chart type Log </span>
+                    </div>
                 </div>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+               
                 <div id="graphDiv_Log_test" style="display:none"></div>
                 <div id="graphDiv_Log_1" style="display:none"></div>
                 <div id="graphDiv_Log_2" style="display:none"></div>
