@@ -26,7 +26,7 @@
                             <td>{{$patient[$i]->type_disease}}</td>
                             <td>{{$patient[$i]->f_name}} {{$patient[$i]->l_name}}</td>
                             <td>
-                                <a href="{{ action('DoctorController@showChart_Realtime_test')}}">
+                                <a href="{{ action('DoctorController@showChart_Realtime',$patient[$i]->id )}}">
                                     <button type="submit" class="btn btn-danger">
                                         {{ __('ecg chart') }}
                                     </button>
