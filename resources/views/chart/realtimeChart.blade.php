@@ -28,17 +28,15 @@
                 <tbody>
                 
                     <tr>
-                        
                         <td>{{$patient->id}}</td>
                         <td>{{$patient->f_name}}</td>
                         <td>{{$patient->l_name}}</td>
                         <td>รถชน กระดูกหัก</td>
                         <td>
                             <a href="{{ action('DoctorController@showListDoctor') }}">
-                                ADVICE
+                                SUBMIT
                             </a> 
                         </td>
-                        
                     </tr>
                    
                 </tbody>
@@ -1376,22 +1374,6 @@
                 }
             });
         }
-        // if (status_chart_3 == 1) {
-        //     // Chart sub - 3
-        //     Plotly.extendTraces(graphDiv_realTime_3, {
-        //         y: [
-        //             [getData(textECG_main.y[count], 0)]
-        //         ]
-        //     }, [0]);
-        //     Plotly.relayout(graphDiv_realTime_3, {
-        //         xaxis: {
-        //             range: [cnt - 100, cnt]
-        //         },
-        //         yaxis: {
-        //             range: [3, 5]
-        //         }
-        //     });
-        // }
         count++;
         if (count >= 50) {
             count = 0;

@@ -8,9 +8,7 @@
         </div>
     </div>
     <div class="container">
-
-        <div class="wrapper">
-            <div class="one bg-dark">
+            <div class="bg-dark">
                 <table class="table table-sm table-hover text-md-center">
                     <thead>
                         <tr>
@@ -59,13 +57,6 @@
                                     @endfor
                     </tbody>
                 </table>
-            </div>
-            <div class="two bg-light">
-                <div class="checkbox">
-                    <label><input type="checkbox" id="chart_1" onclick="chart_1()"> - AVF</label>
-                </div>
-                <p id="text" class="btn btn-primary " style="display:none">Checkbox is CHECKED!</p>
-            </div>
         </div>
     </div>
 </div>
