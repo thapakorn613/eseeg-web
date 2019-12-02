@@ -239,8 +239,26 @@
       var year = date.getFullYear();
       var month = date.getMonth()+1;
       var day = date.getDate();
-      console.log(day + ":" + month + ":" + year)
-      database.ref("101/"+year+"/"+month+"/"+day+"/11:00").on('value', function(snapshot){
+      var hour = date.getHours();
+      var min = date.getMinutes();
+      console.log(day + ":" + month + ":" + year + "  " + hour + ":" + min)
+      database.ref("101/"+year+"/"+month+"/"+day).on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log("row",data.val());
+                    console.log("title",data.getKey());
+                    textECG_firebase.push(val);
+                    
+                });
+                var theDiv = document.getElementById("ex-table");
+                theDiv.innerHTML += content; 
+                //$('#ex-table').append(content);
+            }
+      });
+      
+      database.ref("101/"+year+"/"+month+"/"+day+"/11:00/1ecglog").on('value', function(snapshot){
             if(snapshot.exists()){
                 var content = '';
                 snapshot.forEach(function(data){

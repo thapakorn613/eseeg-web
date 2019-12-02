@@ -30,8 +30,8 @@ Route::get('/contact', 'MenuController@toContact' );
 Route::get('/service', 'MenuController@toService' );
 
 Route::get('/emergency', 'DoctorController@showListEM' );
-Route::get('/emergency/showChart/Realtime', 'DoctorController@showChart_Realtime' );
-Route::get('/showChart_Realtime_test', 'DoctorController@showChart_Realtime_test' );
+Route::get('/emergency/showChart/Realtime/{id?}', 'DoctorController@showChart_Realtime' );
+// Route::get('/showChart_Realtime_test', 'DoctorController@showChart_Realtime_test' );
 
 
 Route::get('/advice', 'DoctorController@showListDoctor' );
