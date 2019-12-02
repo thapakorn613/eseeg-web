@@ -1556,30 +1556,49 @@
       var day = date.getDate();
       var hour = date.getHours();
       var min = date.getMinutes();
+      var headder;
       console.log(day + ":" + month + ":" + year + "  " + hour + ":" + min)
+      var h_real = hour + "." + min
       database.ref("101/"+year+"/"+month+"/"+day).on('value', function(snapshot){
             if(snapshot.exists()){
                 var content = '';
+                var h_time;
                 snapshot.forEach(function(data){
                     var val = data.val();
+                    var key = data.getKey();
                     console.log("zz",data.val());
                     console.log("yy",data.getKey());
-                    textECG_firebase.push(val);
+                    h_time = key.toString().split(":");
+                    h_time = h_time.join(".");
+                    if(h_time <= h_real){
+                        h_time = h_time.toString().split(".");
+                        h_time = h_time.join(":");
+                        headder = h_time;
+                        console.log("1")
+                    }else{
+                        h_real = h_real.toString().split(".");
+                        h_real = h_real.join(":");
+                        headder = h_real;
+                        console.log("2")
+                    }
+                    console.log("XX",h_time);
+                    console.log("II",h_real);
+                    
                     
                 });
-                var theDiv = document.getElementById("ex-table");
-                theDiv.innerHTML += content; 
+                gettext();
                 //$('#ex-table').append(content);
             }
       });
-      
-      database.ref("101/"+year+"/"+month+"/"+day+"/11:00/1ecglog").on('value', function(snapshot){
+    function gettext(){
+      database.ref("101/"+year+"/"+month+"/"+day+"/"+headder+"/1ecglog").on('value', function(snapshot){
+          console.log("101/"+year+"/"+month+"/"+day+"/"+headder+"/1ecglog")
             if(snapshot.exists()){
                 var content = '';
                 snapshot.forEach(function(data){
                     var val = data.val();
-                    console.log("row",data.val());
-                    console.log("title",data.getKey());
+                    //console.log("row",data.val());
+                    //console.log("title",data.getKey());
                     textECG_firebase.push(val);
                   
                     content +='<tr>';
@@ -1596,6 +1615,7 @@
                 //$('#ex-table').append(content);
             }
       });
+    }
     </script>
 
 
