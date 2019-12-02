@@ -2,6 +2,18 @@
 <html>
 
 <head>
+    <style>
+    #map {
+        height: 100%;
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/EseeG-shortCut.png') }}" />
 
     <title>ECG PLATFORM &mdash; Colorlib Template</title>
@@ -30,7 +42,6 @@
                         <ul class="site-menu js-clone-nav d-none d-lg-block">
                             <li class="active"><a style="color:white" href="{{ action('MenuController@toHome')}}">Home</a></li>
                             <li><a style="color:white" href="{{ action('MenuController@toService')}}">Services</a></li>
-                            <li><a style="color:white" href="{{ action('MenuController@toAbout')}}">About</a></li>
                             <li><a style="color:white" href="{{ action('MenuController@toContact')}}">Contact</a></li>
                             <li><a href="#" class="icons-btn d-inline-block js-search-open">
                                     <span ><img src="{{ asset('images/btn_search.png') }}" width="20px" hight="20px"></span>
@@ -60,11 +71,7 @@
                                 </form>
                             </li>
                             @endguest
-                            <li>
-                                <a  class="icons-btn d-inline-block">
-                                    <span ><img src="{{ asset('images/user.png ') }}" width="25px" hight="25px" class="icon-search"></span>
-                                </a>
-                            </li>
+                           
                         </ul>
                     </nav>
                 </div>
@@ -76,7 +83,7 @@
 <body>
     <div class="site-blocks-cover" style="background-image: url({{ asset('images/bg_2.jpg')}});">  
         @section('sidebar')
-        <a style="color:white">ArtRonin TEST</a>
+        <a style="color:white"></a>
         @show
         <div class="container">
             @yield('content')
