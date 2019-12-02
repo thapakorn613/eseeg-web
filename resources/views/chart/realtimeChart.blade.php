@@ -48,7 +48,7 @@
                     Select Lead
                 </div>
             </div>
-            <table class="table table-sm  text-md-lefe">
+            <table class="table table-sm  text-md-center">
     
                 <tbody>
                     
@@ -56,7 +56,9 @@
                             @if($status_chart->chart_1 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1()"> - AVR</label>
+
+                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1() "  checked enabled> - AVR</label>
+
                                 </div>
                             </td>
                             @endif
@@ -71,20 +73,26 @@
                         <tr>
                             @if($status_chart->chart_3 == 1)
                             <td>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"> - AVF</label>
+                                <div class="checkbox" >
+                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"  checked enabled> - AVF</label>
+
                                 </div>
                             </td>
                             @endif
                             @if($status_chart->chart_4 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4()"> - I </label>
+
+                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4() "> - I </label>
+
                                 </div>
                             </td>
                             @endif
                         </tr>
                         <tr>
+                            <!-- Default unchecked disabled -->
+
+
                             @if($status_chart->chart_5 == 1)
                             <td>
                                 <div class="checkbox">
@@ -95,7 +103,8 @@
                             @if($status_chart->chart_6 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()"> - III</label>
+                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()" checked enabled > - III</label>
+
                                 </div>
                             </td>
                             @endif
@@ -158,14 +167,14 @@
                 <div class="card text-white text-center bg-danger mb-3">
                     <h3>Real-Time Chart with Plotly.js</h3>
                 </div>
-                
-                
-                <div id="graphDiv_realTime_main1" style="display:none"></div>
+            
+                <div id="graphDiv_realTime_main1" style="display:block"></div>
                 <div id="graphDiv_realTime_main2" style="display:none"></div>
-                <div id="graphDiv_realTime_main3" style="display:none"></div>
+                <div id="graphDiv_realTime_main3" style="display:block"></div>
                 <div id="graphDiv_realTime_main4" style="display:none"></div>
                 <div id="graphDiv_realTime_main5" style="display:none"></div>
-                <div id="graphDiv_realTime_main6" style="display:none"></div>
+                <div id="graphDiv_realTime_main6" style="display:block"></div>
+
                 <div id="graphDiv_realTime_main7" style="display:none"></div>
                 <div id="graphDiv_realTime_main8" style="display:none"></div>
                 <div id="graphDiv_realTime_main9" style="display:none"></div>
@@ -175,8 +184,8 @@
                
         </div>
     </div>
-    <div class= 'container'>
-        <div class="wrapper four">
+    <div class= 'container text-center'>
+        <div class="wrapper ">
             
                 @if($status_chart->chart_1 == 1 )
                 <div id="graphDiv_realTime_1"></div>
@@ -1026,7 +1035,7 @@
         //! Chart Main - BEGIN
         Plotly.extendTraces(graphDiv_realTime_main1, {
             y: [
-                [getData(textECG_firebase[count].I, 0)]
+                [getData(textECG_sub_1.y[count], 0)]
             ]
         }, [0]);
         
@@ -1041,7 +1050,7 @@
 
         Plotly.extendTraces(graphDiv_realTime_main2, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+                    [getData(textECG_sub_2.y[count], 0)]
                 ]
             }, [0]);
         Plotly.relayout(graphDiv_realTime_main2, {
@@ -1054,10 +1063,126 @@
         });
         Plotly.extendTraces(graphDiv_realTime_main3, {
                 y: [
-                    [getData(textECG_firebase[count].I, 0)]
+                    [getData(textECG_sub_3.y[count], 0)]
                 ]
             }, [0]);
         Plotly.relayout(graphDiv_realTime_main3, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main4, {
+                y: [
+                    [getData(textECG_sub_4.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main4, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main5, {
+                y: [
+                    [getData(textECG_sub_5.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main5, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main6, {
+                y: [
+                    [getData(textECG_sub_6.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main6, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main7, {
+                y: [
+                    [getData(textECG_sub_7.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main7, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main8, {
+                y: [
+                    [getData(textECG_sub_8.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main8, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main9, {
+                y: [
+                    [getData(textECG_sub_9.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main9, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });Plotly.extendTraces(graphDiv_realTime_main10, {
+                y: [
+                    [getData(textECG_sub_10.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main10, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main11, {
+                y: [
+                    [getData(textECG_sub_11.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main11, {
+            xaxis: {
+                range: [cnt - 200, cnt]
+            },
+            yaxis: {
+                range: [3, 5]
+            }
+        });
+        Plotly.extendTraces(graphDiv_realTime_main12, {
+                y: [
+                    [getData(textECG_sub_12.y[count], 0)]
+                ]
+            }, [0]);
+        Plotly.relayout(graphDiv_realTime_main12, {
             xaxis: {
                 range: [cnt - 200, cnt]
             },
@@ -1376,7 +1501,6 @@
                 }
             });
         }
-       
         count++;
         if (count >= textECG_firebase.length) {
             count = 0;
