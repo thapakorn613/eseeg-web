@@ -48,7 +48,7 @@
                     Select Lead
                 </div>
             </div>
-            <table class="table table-sm  text-md-lefe">
+            <table class="table table-sm  text-md-center">
     
                 <tbody>
                     
@@ -162,9 +162,9 @@
                 
                 <div id="graphDiv_realTime_main1" style="display:none"></div>
                 <div id="graphDiv_realTime_main2" style="display:none"></div>
-                <div id="graphDiv_realTime_main3" style="display:none"></div>
-                <div id="graphDiv_realTime_main4" style="display:none"></div>
-                <div id="graphDiv_realTime_main5" style="display:none"></div>
+                <div id="graphDiv_realTime_main3" style="display:block"></div>
+                <div id="graphDiv_realTime_main4" style="display:block"></div>
+                <div id="graphDiv_realTime_main5" style="display:block"></div>
                 <div id="graphDiv_realTime_main6" style="display:none"></div>
                 <div id="graphDiv_realTime_main7" style="display:none"></div>
                 <div id="graphDiv_realTime_main8" style="display:none"></div>
@@ -175,8 +175,8 @@
                
         </div>
     </div>
-    <div class= 'container'>
-        <div class="wrapper four">
+    <div class= 'container text-center'>
+        <div class="wrapper ">
             
                 @if($status_chart->chart_1 == 1 )
                 <div id="graphDiv_realTime_1"></div>
