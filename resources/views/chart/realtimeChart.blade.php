@@ -56,7 +56,7 @@
                             @if($status_chart->chart_1 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1()"> - AVR</label>
+                                    <label><input type="checkbox" id="chart_1" onclick="checkChart_1() "  checked enabled> - AVR</label>
                                 </div>
                             </td>
                             @endif
@@ -71,20 +71,23 @@
                         <tr>
                             @if($status_chart->chart_3 == 1)
                             <td>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"> - AVF</label>
+                                <div class="checkbox" >
+                                    <label><input type="checkbox" id="chart_3" onclick="checkChart_3()"  checked enabled> - AVF</label>
                                 </div>
                             </td>
                             @endif
                             @if($status_chart->chart_4 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4()"> - I </label>
+                                    <label><input type="checkbox" id="chart_4" onclick="checkChart_4() "> - I </label>
                                 </div>
                             </td>
                             @endif
                         </tr>
                         <tr>
+                            <!-- Default unchecked disabled -->
+
+
                             @if($status_chart->chart_5 == 1)
                             <td>
                                 <div class="checkbox">
@@ -95,7 +98,7 @@
                             @if($status_chart->chart_6 == 1)
                             <td>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()"> - III</label>
+                                    <label><input type="checkbox" id="chart_6" onclick="checkChart_6()" checked enabled > - III</label>
                                 </div>
                             </td>
                             @endif
@@ -160,12 +163,12 @@
                 </div>
                 
                 
-                <div id="graphDiv_realTime_main1" style="display:none"></div>
+                <div id="graphDiv_realTime_main1" style="display:block"></div>
                 <div id="graphDiv_realTime_main2" style="display:none"></div>
                 <div id="graphDiv_realTime_main3" style="display:block"></div>
-                <div id="graphDiv_realTime_main4" style="display:block"></div>
-                <div id="graphDiv_realTime_main5" style="display:block"></div>
-                <div id="graphDiv_realTime_main6" style="display:none"></div>
+                <div id="graphDiv_realTime_main4" style="display:none"></div>
+                <div id="graphDiv_realTime_main5" style="display:none"></div>
+                <div id="graphDiv_realTime_main6" style="display:block"></div>
                 <div id="graphDiv_realTime_main7" style="display:none"></div>
                 <div id="graphDiv_realTime_main8" style="display:none"></div>
                 <div id="graphDiv_realTime_main9" style="display:none"></div>
