@@ -235,13 +235,30 @@
       };
       firebase.initializeApp(config);
       var database = firebase.database();
-      var today = new Date();
-      var year =  today.getFullYear();
-      var month = today.getMonth() + 1;
-      var day = today.getDate();
-      console.log("Year : ",year,"Month : ",month,"Day : ",day);
-
-      database.ref("101"+"/"+year+"/"+month+"/"+day+"/1ecglog").on('value', function(snapshot){
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth()+1;
+      var day = date.getDate();
+      var hour = date.getHours();
+      var min = date.getMinutes();
+      console.log(day + ":" + month + ":" + year + "  " + hour + ":" + min)
+      database.ref("101/"+year+"/"+month+"/"+day).on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log("row",data.val());
+                    console.log("title",data.getKey());
+                    textECG_firebase.push(val);
+                    
+                });
+                var theDiv = document.getElementById("ex-table");
+                theDiv.innerHTML += content; 
+                //$('#ex-table').append(content);
+            }
+      });
+      
+      database.ref("101/"+year+"/"+month+"/"+day+"/11:00/1ecglog").on('value', function(snapshot){
             if(snapshot.exists()){
                 var content = '';
                 snapshot.forEach(function(data){
@@ -260,7 +277,7 @@
                     
                 });
                 var theDiv = document.getElementById("ex-table");
-                //theDiv.innerHTML += content; 
+                theDiv.innerHTML += content; 
                 //$('#ex-table').append(content);
             }
       });
