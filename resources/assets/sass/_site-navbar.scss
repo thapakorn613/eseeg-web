@@ -36,13 +36,6 @@
 		position: relative;
 	}
 }
-.navbar {
-	background-color: #333;
-	overflow: hidden;
-	position: fixed;
-	bottom: 5px;
-	width: 100%;
-  }
 .site-navbar {
 	
 	margin-bottom: 0px;
@@ -53,7 +46,7 @@
 	background: $white;
 	&.position-relative {
 		position: relative;
-		background: #48617e!important;
+		background: #f9f9f9!important;
 	}
 	
 	&.transparent {
